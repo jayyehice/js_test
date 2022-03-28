@@ -6,70 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        html,body{
-            background-color: #c7bbbb;
-            text-align: center;
+
+
+
+        main{
+            width: 1200px;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #000;
+            background-color: rgb(224, 221, 221);
+
+        }
+
+        div{
+            width: 500px;
+            height: 500px;
+            background-color: #fff;
+            margin: 50px;
+            background-image: url("image/bns.jpg");
+            border-radius: 20px;
+        }
+
+        img{
+
+            width: 500px;
+            margin-top: 150px;
+
         }
     </style>
 </head>
 <body>
-    <img id='img' src="youtube.jpg" alt="">
+    
+    <main>
+        <div>
+            <!-- <img src="image/黑-黑底殼-N.jpg" alt=""> -->
+        </div>
 
-    <p id="content"> 请等三秒钟!</p>     
+        <!--上傳圖片的按鈕-->
+        <input id="file" type="file"/>
 
-    <script>
+        <!--預覽區塊-->
+        <img id="demo"/>
 
-        // setTimeout("changeState()",3000 );  
-        // function changeState(){  
-        //     let content=document.getElementById('content');  
-        //     content.innerHTML="<div style='color:red'>我是三秒后显示的内容！</div>";  
-        // }  
 
-        setTimeout("removeImgBg(document.getElementById('img'))",1000);
+    </main>
 
-        function removeImgBg(img){
-            let content=document.getElementById('content');  
-            content.innerHTML="<div style='color:red'>我是三秒后显示的内容！</div>";
-            // console.log('in');
-            const rgba = [255,255,255,255];
-            const tolerance = 10;
-
-            var imgData = null;
-            const [r0,g0,b0,a0] = rgba;
-            var r, g, b, a;
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            const w = img.width;
-            const h = img.height;
-
-            canvas.width = w;
-            canvas.height = h;
-            context.drawImage(img, 0, 0);
-            imgData = context.getImageData(0, 0, w, h);
-
-            for(let i=0; i<imgData.data.length; i+=4){
-                r = imgData.data[i];
-                g = imgData.data[i+1];
-                b = imgData.data[i+2];
-                a = imgData.data[i+3];
-
-                const t=Math.sqrt((r-r0)**2 + (g-g0)**2 + (b-b0)**2 + (a-a0)**2);
-
-                if (t<=tolerance){
-
-                    for(let j=0; j<4; j++){
-                        imgData.data[i+j] = 0;
-                    }
-
-                }
-            }
-
-            context.putImageData(imgData, 0, 0);
-
-            const newBase64 = canvas.toDataURL('image/test.png');
-
-            img.src = newBase64;
-        }
-    </script>
+    <style>
+        
+    </style>
 </body>
 </html>
