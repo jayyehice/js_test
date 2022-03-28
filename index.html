@@ -6,53 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-
-
         main{
             width: 1200px;
             margin: 0 auto;
             margin-top: 100px;
-            border: 1px solid #000;
+            border: 1px solid #fff;
+
+            border-radius: 30px;
             background-color: rgb(224, 221, 221);
+
+            position: relative;
 
         }
 
-        div{
+        .gb_img{
             width: 500px;
             height: 500px;
             background-color: #fff;
             margin: 50px;
             background-image: url("image/bns.jpg");
             border-radius: 20px;
+
+            
         }
 
         img{
 
-            width: 500px;
-            margin-top: 150px;
+            width: 184px;
+            /* border: 1px solid #000; */
+            
+            margin-top: 200px;
+            margin-left: 100px;
+            
+        }
 
+        #file{
+            position: absolute;
+            right: 210px;
+            bottom: 210px;
+        }
+
+        #show{
+            position: absolute;
+            right: 410px;
+            bottom: 160px;
         }
     </style>
 </head>
 <body>
     
     <main>
-        <div>
-            <!-- <img src="image/黑-黑底殼-N.jpg" alt=""> -->
+        <div class="gb_img">
+            <div id="content"></div>
         </div>
 
         <!--上傳圖片的按鈕-->
         <input id="file" type="file"/>
 
-        <!--預覽區塊-->
-        <img id="demo"/>
+        <input id="show" type="button" value="展示">
 
 
     </main>
 
-    <style>
+    <script>
+
+        var show_btn = document.getElementById("show");
+
+        show_btn.onclick = function(){
+            //alert("hello");
+            let content=document.getElementById('content');  
+            content.innerHTML='<img src="./image/logo-W.png" alt="">';
+        } 
+
+        // console.log("123");
         
-    </style>
+    </script>
 </body>
 </html>
