@@ -9,7 +9,7 @@
         main{
             width: 1200px;
             margin: 0 auto;
-            margin-top: 100px;
+            margin-top: 50px;
             border: 1px solid #fff;
 
             border-radius: 30px;
@@ -19,7 +19,7 @@
 
         }
 
-        .gb_img{
+        #gb_img{
             width: 500px;
             height: 500px;
             background-color: #fff;
@@ -42,13 +42,13 @@
 
         #file{
             position: absolute;
-            right: 210px;
+            right: 200px;
             bottom: 210px;
         }
 
         #show{
             position: absolute;
-            right: 410px;
+            right: 383px;
             bottom: 160px;
         }
 
@@ -58,12 +58,12 @@
             bottom: 110px;
 
             display: block;
-            width: 80px;
+            width: 70px;
             /* height: 30px; */
             background-color: rgb(233, 229, 229);
             text-align: center;
             text-decoration: none;
-            line-height: 30px;
+            line-height: 20px;
 
             border: 1px solid rgb(116, 116, 116);
 
@@ -71,19 +71,43 @@
 
             color: #000;
         }
+
+        .color_btn{
+
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+        }
+
+        #red{
+            background-color: rgb(255, 0, 0);
+            right: 370px;
+        }
+
+        #black{
+            background-color: rgb(0, 0, 0);
+            right: 420px;
+        }
+
     </style>
 </head>
 <body>
     
     <main>
-        <div class="gb_img">
+        <div id="gb_img">
             <div id="content"></div>
         </div>
+
+        <div id="black" class="color_btn"></div>
+
+        <div id="red" class="color_btn"></div>
 
         <!--上傳圖片的按鈕-->
         <input id="file" type="file"/>
 
-        <input id="show" type="button" value="展示">
+        <input id="show" type="button" value="雷雕示意">
 
         <a href="./index_remove_bg.html">去背效果</a>
 
@@ -95,13 +119,24 @@
         var show_btn = document.getElementById("show");
 
         show_btn.onclick = function(){
-            //alert("hello");
             let content=document.getElementById('content');  
             content.innerHTML='<img src="./image/logo-W.png" alt="">';
         } 
 
-        // console.log("123");
+        var black_btn = document.getElementById("black");
+
+        black_btn.onclick = function(){
+            let content=document.getElementById('gb_img');  
+            content.style.backgroundImage = 'url("./image/bns.jpg")';
+        } 
         
+        var red_btn = document.getElementById("red");
+
+        red_btn.onclick = function(){
+            let content=document.getElementById('gb_img');  
+            content.style.backgroundImage = 'url("./image/rns.jpg")';
+        } 
+
     </script>
 </body>
 </html>
